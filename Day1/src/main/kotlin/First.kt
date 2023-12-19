@@ -1,7 +1,5 @@
 import java.io.File
 
-
-
 fun extractNumberFromLine(line: String): Int{
     var number = ""
     for(i in line.indices){
@@ -82,7 +80,6 @@ fun extractNumberFromLine2(line: String): Int{
             }
         }
     }
-    println(number)
     return number.toInt()
 }
 
