@@ -11,7 +11,7 @@ fun readFile1(fileName: String, map: Map<String, Int>): Int {
         var isValid = true
         rounds.forEach { round ->
             splitRoundIntoColors(round).forEach { color ->
-                val c = splitColorIntoNumberAndColor(stripFromFirstSpace(color));
+                val c = splitColorIntoNumberAndColor(removeFirstSpace(color));
                 if (map.get(c[1])!! < c[0].toInt()) {
                     isValid = false
                 }
@@ -31,7 +31,7 @@ fun readFile2(fileName: String): Int {
         val map = mutableMapOf("red" to 0, "blue" to 0, "green" to 0)
         rounds.forEach { round ->
             splitRoundIntoColors(round).forEach { color ->
-                val c = splitColorIntoNumberAndColor(stripFromFirstSpace(color));
+                val c = splitColorIntoNumberAndColor(removeFirstSpace(color));
                 if (map.get(c[1])!! < c[0].toInt()) {
                     map.set(c[1], c[0].toInt())
                 }
@@ -52,7 +52,7 @@ fun splitRoundIntoColors(line: String): List<String> = line.split(",")
 
 fun splitColorIntoNumberAndColor(line: String): List<String> = line.split(" ")
 
-fun stripFromFirstSpace(line: String): String = line.removePrefix(" ")
+fun removeFirstSpace(line: String): String = line.removePrefix(" ")
 
 
 
